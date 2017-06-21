@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Entities>
+    <ExtensionPackages>
+        <ExtensionPackage dependsOn="" description="" minimumThingWorxVersion="7.2.1" name="SJLEE_Thingworx" packageVersion="1.0.0" vendor=""> 
+        </ExtensionPackage>
+    </ExtensionPackages>
+    <Widgets>
+        <Widget name="test1">
+            <UIResources>
+                <FileResource description="" file="test1.ide.js" isDevelopment="true" isRuntime="false" type="JS"/>
+                <FileResource description="" file="test1.ide.css" isDevelopment="true" isRuntime="false" type="CSS"/>
+                <FileResource description="" file="test1.runtime.js" isDevelopment="false" isRuntime="true" type="JS"/>
+                <FileResource description="" file="test1.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"/>
+            </UIResources>
+        </Widget>
+        <Widget name="test2">
+            <UIResources>
+                <FileResource description="" file="test2.ide.js" isDevelopment="true" isRuntime="false" type="JS"/>
+                <FileResource description="" file="test2.ide.css" isDevelopment="true" isRuntime="false" type="CSS"/>
+                <FileResource description="" file="test2.runtime.js" isDevelopment="false" isRuntime="true" type="JS"/>
+                <FileResource description="" file="test2.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"/>
+            </UIResources>
+        </Widget>
+    </Widgets>
+</Entities>
