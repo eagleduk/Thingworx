@@ -88,21 +88,20 @@ TW.IDE.Widgets.test1 = function () {
 					props['xAxis_style']['isVisible']= false;
 					props['yAxis_style']['isVisible']= false;
 				}else if(type === 'x') {
+					props['xAxis_style']['isVisible']= true;
+
 					props['series_style']['isVisible']= false;
 					props['series_count']['isVisible']= false;
-
-					props['xAxis_style']['isVisible']= true;
-					
 					props['yAxis_style']['isVisible']= false;
 				}else if(type === 'y') {
+					props['yAxis_style']['isVisible']= true;
+
 					props['series_style']['isVisible']= false;
 					props['series_count']['isVisible']= false;
 					props['xAxis_style']['isVisible']= false;
-					
-					props['yAxis_style']['isVisible']= true;
 				}
 				
-				this.seriesDataIsVisible(prop, seriesDataVisible);
+				this.seriesDataIsVisible(props, seriesDataVisible);
 				
 				TW.IDE.updateWidgetPropertiesWindow();
 				refreshHtml = true;
@@ -111,13 +110,9 @@ TW.IDE.Widgets.test1 = function () {
 				var props = this.allWidgetProperties()['properties'];
 				
 				this.deleteSeriesData(props);
-				
-				if(type === 's') {
-					this.addSeriesData(props);
-				}
+				this.addSeriesData(props);
 				
 				TW.IDE.updateWidgetPropertiesWindow();
-				refreshHtml = true;
 				break;
 			default:
 				break;
@@ -150,43 +145,39 @@ TW.IDE.Widgets.test1 = function () {
 		var series_count = this.getProperty('series_count');
 		var series_visible = false;
 		
-		this.deleteSeriesData(props);
-		
-		if(type === 's') {
+		if(type == 's') {
 			props['series_style']['isVisible']= true;
 			props['series_count']['isVisible']= true;
-			this.addSeriesData(props);
 			
 			props['xAxis_style']['isVisible']= false;
 			props['yAxis_style']['isVisible']= false;
-		}else if(type === 'x') {
+		}else if(type == 'x') {
 			props['xAxis_style']['isVisible']= true;
 
 			props['series_style']['isVisible']= false;
 			props['series_count']['isVisible']= false;
 			props['yAxis_style']['isVisible']= false;
-		}else if(type === 'y') {
+		}else if(type == 'y') {
 			props['yAxis_style']['isVisible']= true;
 
 			props['series_style']['isVisible']= false;
 			props['series_count']['isVisible']= false;
 			props['xAxis_style']['isVisible']= false;
 		}
-		
 	};
 	
 	this.deleteSeriesData = function(props) {
-
+		console.log('===============   deleteSeriesData start  ========');
 		for(name in props) {
-			console.log('name == ' + name + ", indexof == " + name.indexOf('seriesData_'));
 			if(name.indexOf('seriesData_') >= 0) {
 				delete props[name];
 			}
 		}
+		console.log('===============   deleteSeriesData end  ========');
 	};
 	
 	this.addSeriesData = function(props) {
-		
+		console.log('===============   addSeriesData start  ========');
 		var series_count = this.getProperty('series_count');
 		
 		for(var i=0; i<series_count; i++) {
@@ -203,14 +194,19 @@ TW.IDE.Widgets.test1 = function () {
 			
 			props[name] = newProperty;
 		}
+		console.log('===============   addSeriesData end  ========');
 	};
 	
 	this.seriesDataIsVisible = function(props, isVisible) {
+		console.log('===============   seriesDataIsVisible start  ========');
 		var series_count = this.getProperty('series_count');
 		for(var i=0; i<series_count; i++) {
 			var name = 'seriesData_' + (i+1);
-			props[name]['isVisible']= isVisible;
+			console.log(name + " =====   " + props[name] );
+			if(props[name] != undefined)
+				props[name]['isVisible'] = isVisible;
 		}
+		console.log('===============   seriesDataIsVisible end  ========');
 	};
 
 };

@@ -13,11 +13,18 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/SJLEE_Thingworx/twx-lib/thingworx-javadocs-7.2.1-b71.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/thingworx-platform-common-7.2.1-b71.jar"/>
 	<classpathentry kind="lib" path="twx-lib/jackson-annotations-2.6.1.jar"/>
 	<classpathentry kind="lib" path="twx-lib/joda-time-2.9.jar"/>
 	<classpathentry kind="lib" path="twx-lib/jackson-dataformat-smile-2.6.1.jar"/>
 	<classpathentry kind="lib" path="twx-lib/thingworx-communications-server-7.2.1-b71.jar"/>
 	<classpathentry kind="lib" path="twx-lib/logback-classic-1.0.13.jar"/>
 	<classpathentry kind="lib" path="twx-lib/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="lib/thingworx-platform-postgres-7.3.1-b39.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
