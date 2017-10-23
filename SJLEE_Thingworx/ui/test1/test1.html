@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+</head>
+<script>
+var chart
+$(document).ready(function() {
+	
+	var value = 0;
+
+	console.log(typeof value);
+	
+	if(typeof value != "number")
+	value = value.trim();
+	if(value == "null" || value.length == 0 || value == undefined || value == "") value = null;
+	
+	console.log("text === ", value);
+	
+})
+</script>
+
+<body>
+
+<div id="container">
+</div>
+
+</body>
+</html>

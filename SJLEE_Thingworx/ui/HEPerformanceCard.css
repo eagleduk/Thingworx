@@ -1,0 +1,289 @@
+
+.HEPerformanceCard-body {
+	width: 240px;
+	height: 350px;
+	border: 1px solid #dddddd;
+	background-color: #fafafb;
+	font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+.HEPerformanceCard-TitleBar {
+	width: 240px;
+	height: 6px;
+	background-color: #0059b2;
+}
+
+.HEPerformanceCard-TitleLabel {
+	top: 20px;
+    left: 2px;
+    width: 61.9px;
+    height: 56px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-TitleLabel>div {
+	color: rgb(149, 153, 155);
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    width: 61.9px;
+    height: 56px;
+    position: relative;
+}
+
+.HEPerformanceCard-TitleLabel>div>span  {
+	font-size: 42px !important;
+	line-height: 32px;
+	font-family: HelveticaMedCd_0 !important;
+	color: rgb(149, 153, 155);
+	font-weight: normal;
+	font-style: normal;
+	text-align: center;
+}
+
+.HEPerformanceCard-Close {
+	top: 20px;
+	left: 189px;
+	width: 22px;
+	height: 22px;
+	z-index: 1510;
+	display: block;
+	position: absolute;
+}
+
+.HEPerformanceCard-Close > div {
+	width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.HEPerformanceCard-Close > div > button {
+	background: transparent;
+	filter: none;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.HEPerformanceCard-Close > div > button > span {
+	font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.HEPerformanceCard-Close > div > button > span > img {
+	width: 16px;
+	height: 16px;
+    vertical-align: middle;
+    border: none;
+}
+
+.HEPerformanceCard-Close img.HEPerformanceCard-Close-Normal {
+	display: inline;
+}
+
+.HEPerformanceCard-Close img.HEPerformanceCard-Close-Active {
+	display: none;
+}
+
+.HEPerformanceCard-Close:hover img.HEPerformanceCard-Close-Normal {
+	display: none;
+}
+
+.HEPerformanceCard-Close:hover img.HEPerformanceCard-Close-Active {
+	display: inline;
+}
+
+.HEPerformanceCard-Divider {
+    top: 59px;
+    left: 25px;
+    width: 186px;
+    height: 1px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-Divider > div {
+	background-color: rgb(207, 207, 212);
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    width: 186px;
+    height: 1px;
+    position: relative;
+}
+
+.HEPerformanceCard-ContainerPanel {
+    top: 70px;
+    width: 240px;
+    height: 270px;
+    z-index: 1510;
+    display: block;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Content {
+	width: 100%;
+	height: 70%;
+    overflow: auto;
+    background: #fafafb;
+    filter: none;
+    border: none;
+    position: relative;
+}
+
+.HEPerformanceCard-ContainerPanel-Content-Label {
+	top: 7.7px;
+    left: 25px;
+    width: 94px;
+    height: 19.2px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Content-Label > div {
+	color: rgb(57, 58, 59);
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    text-align: left;
+    width: 94px;
+    height: 19.2px;
+    background: transparent;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Content-Label > div > span {
+    color: #393a3b;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.HEPerformanceCard-ContainerPanel-Content-List {
+	top: 0px;
+    left: 121px;
+    width: 90px;
+    height: 30px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Content-List-Select {
+	width: 100%;
+	height: 100%;
+	background: #f5f5f5;
+	border-radius: 4px;
+	border-width: 1px;
+	border-color: #e3e3e3;
+	border-style: solid;
+	appearance: none;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline {
+	width: 100%;
+	height: 30%;
+	position: relative;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Voyage {
+	width: 100%;
+	height: 100%;
+	top: 20px;
+	position: relative;
+	display: none;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Input {
+	top: 0px;
+    left: 0px;
+    width: 120px;
+    height: 30px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Input > div {
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+    filter: none;
+    border-width: 1px;
+    border-color: #cccccc;
+    border-style: solid;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Input > div > div {
+	display: block;
+    height: 100%;
+    padding: 0 2px;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Input > div > div > input {
+	background: none;
+    border: none;
+    color: #666;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Button {
+    width: 30px;
+    height: 30px;
+    z-index: 1510;
+    position: absolute;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Button > div {
+	width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Button > div > button {
+	background: transparent;
+	filter: none;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Button > div > button > span {
+	font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.HEPerformanceCard-ContainerPanel-Baseline-Period-Button > div > button > span > img {
+	width: 100%;
+	height: 100%;
+    vertical-align: middle;
+    border: none;
+}

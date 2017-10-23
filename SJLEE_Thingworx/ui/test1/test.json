@@ -1,0 +1,177 @@
+{
+	"chart": {
+	  "polar": true,
+	  "events": {
+	    "load": "onDraw",
+	    "resize": "onDraw"
+	  }
+	},
+
+	"title": null,
+	"rePath": [],
+	"pane": {
+	  "startAngle": -270,
+	  "endAngle": 90
+	},
+
+	"xAxis": {
+	  "tickInterval": 90,
+	  "min": 0,
+	  "max": 360,
+	  "labels": {
+	    "formatter": function() {
+	      var returnValue;
+	      if (this.value == "0") {
+	        returnValue = "0¡Æ";
+	      } else if (this.value == "90") {
+	        returnValue = "-90¡Æ";
+	      } else if (this.value == "180") {
+	        returnValue = "¡¾180¡Æ";
+	      } else if (this.value == "270") {
+	        returnValue = "90¡Æ";
+	      } else {
+	        returnValue = this.value + "¡Æ";
+	      }
+	      return returnValue;
+	    }
+	  }
+	},
+
+	"yAxis": {
+	  "min": 0,
+	  "categories": [""],
+	  "gridLineColor": "",
+	  "labels": {
+	    "style": {
+	      "display": "none"
+	    }
+	  },
+	  "max": 230
+	},
+
+	"plotOptions": {
+	  "series": {
+	    "pointStart": 0,
+	    "pointInterval": 90
+	  },
+	  "column": {
+	    "pointPadding": 0,
+	    "groupPadding": 0
+	  }
+	},
+
+	"legend": false,
+	"credits": false,
+
+	"tooltip": {
+	  "formatter": function() {
+	    return "<b>" + this.series.name + "</b><br/><b><span style="color:" + this.series.data[0].color + "">¡Ü</span> " + this.series.data[0].valueX + "¡Æ: " + this.series.data[0].valueY + this.series.data[0].unit + "</b><br>";
+	  }
+	},
+
+	"series": [{
+      "type": "line",
+      "name": "V12",
+      "color": "#785D12",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }, {
+      "type": "line",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }, {
+      "type": "line",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }, {
+      "type": "line",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }, {
+      "type": "line",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }, {
+      "type": "line",
+      "marker": {
+        "enabled": false
+      },
+      "data": [{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "unit": "V",
+        "x": 0,
+        "y": 0,
+      },{
+        "valueX": "0.0",
+        "valueY": "0.0",
+        "x": 0,
+        "y": 0,
+      }]
+    }]
+}

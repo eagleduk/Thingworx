@@ -1,0 +1,240 @@
+
+<html>
+
+<head>
+
+<link rel="stylesheet" href="HEPerformanceCard.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	var src = "image/dropdown_normal.png";
+	//$(".HEPerformanceCard-ContainerPanel-Content-List-Select").css("background", "url('" + src + "') no-repeat 110%");
+	var _document = $(document);
+	console.log(_document);
+	
+	console.log(_document["0"].URL);
+	
+	let test = 'TEST111';
+	console.log('test === ' + test);
+	
+	console.log(`My name is ${test}.`);
+	
+	const takeOrder = (value) => {
+		console.log("takeOrder=============  " + value);
+	}
+	
+	takeOrder("1111");
+	
+	const HE = new Dog('Lee');
+	console.log(HE._name + ', ' + HE._age);
+	
+	getConsole();
+	
+})
+
+$(".HEPerformanceCard-Calendar").on("click", function() {
+	console.log(this);
+	alert(this);
+})
+
+$("#endDate_Calendar").click(function() {
+	console.log(this);
+	alert(this);
+})
+
+class Dog {
+	constructor(name) {
+		this._name = name;
+		this._age = 0;
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+	<div class="HEPerformanceCard-body">
+
+		<div class="HEPerformanceCard-TitleBar"></div>
+
+		<!--            Title Label            -->
+		<div class="HEPerformanceCard-TitleLabel">
+			<div>
+				<span id="HEPerformanceCard-Index">
+					0
+				</span>
+			</div>
+		</div>
+
+		<!--            Close Button            -->
+		<div class="HEPerformanceCard-Close">
+			<div>
+				<button>
+					<span>
+						<img class="HEPerformanceCard-Close-Normal">
+						<img class="HEPerformanceCard-Close-Active">
+					</span>
+				</button>
+			</div>
+		</div>
+		
+		<!--            Divider           -->
+		<div class="HEPerformanceCard-Divider">
+			<div></div>
+		</div>
+		
+		<!--            Content Container           -->
+		<div class="HEPerformanceCard-ContainerPanel">
+			
+			<div class="HEPerformanceCard-ContainerPanel-Content">
+				
+				<!--            Content Container > Label > Source         -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-Label">
+					<div>
+						<span>
+							Source
+						</span>
+					</div>
+				</div>
+				
+				<!--            Content Container > List > Source          -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-List">
+					<select id="source_select" class="HEPerformanceCard-ContainerPanel-Content-List-Select">
+					</select>
+				</div>
+				
+				<!--            Content Container > Label > Performance Base         -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-Label" style="top: 50px">
+					<div>
+						<span style="font-size: 12px">
+							Performance Base
+						</span>
+					</div>
+				</div>
+				
+				<!--            Content Container > List > Performance Base          -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-List" style="top: 50px">
+					<select id="performance_select" class="HEPerformanceCard-ContainerPanel-Content-List-Select">
+					<option> 111 </option>
+						<option> 111 </option>
+						<option> 111 </option>
+						<option> 111 </option>
+					</select>
+				</div>
+				
+				<!--            Content Container > Label > Item         -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-Label" style="top: 110px">
+					<div>
+						<span>
+							Item
+						</span>
+					</div>
+				</div>
+				
+				<!--            Content Container > List > Item          -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-List" style="top: 100px">
+					<select id="item_select" class="HEPerformanceCard-ContainerPanel-Content-List-Select">
+					</select>
+				</div>
+
+				
+				<!--            Content Container > Label > Baseline         -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-Label" style="top: 160px">
+					<div>
+						<span>
+							Baseline
+						</span>
+					</div>
+				</div>
+				
+				<!--            Content Container > List > Baseline          -->
+				<div class="HEPerformanceCard-ContainerPanel-Content-List" style="top: 150px">
+					<select id="baseline_select" class="HEPerformanceCard-ContainerPanel-Content-List-Select">
+					</select>
+				</div>
+			
+			</div>
+			
+			<!--            Baseline Container 				       -->
+			<div class="HEPerformanceCard-ContainerPanel-Baseline">
+				
+				<!--            Baseline Container > Voayge 				       -->
+				<div class="HEPerformanceCard-ContainerPanel-Baseline-Voyage">
+				
+					<!--            Baseline Container > Voayge > Label > Voyage         -->
+					<div class="HEPerformanceCard-ContainerPanel-Content-Label">
+						<div>
+							<span>
+								Voyage
+							</span>
+						</div>
+					</div>
+					
+					<!--            Baseline Container > Voayge > List > Voyage          -->
+					<div class="HEPerformanceCard-ContainerPanel-Content-List">
+						<select id="voyage_select" class="HEPerformanceCard-ContainerPanel-Content-List-Select">
+						</select>
+					</div>
+				</div>
+
+				
+				
+				<!--            Baseline Container > Period 				       -->
+				<div class="HEPerformanceCard-ContainerPanel-Baseline-Period">
+
+					<!--            Baseline Container > Period > Start Input 				       -->
+					<div class="HEPerformanceCard-ContainerPanel-Baseline-Period-Input" style="top: 5px; left: 40px">
+						<div>
+							<div>
+								<input type="text" id="startDate">	
+							</div>
+						</div>
+					</div>
+					
+					<!--            Baseline Container > Period > Start Calendar 				       -->
+					<div class="HEPerformanceCard-ContainerPanel-Baseline-Period-Button" style="top: 7px; left: 170px">
+						<div>
+							<button>
+								<span>
+									<img id="startDate_Calendar" class="HEPerformanceCard-Calendar">
+								</span>
+							</button>
+						</div>
+					</div>
+					
+					<!--            Baseline Container > Period > End Input 				       -->
+					<div class="HEPerformanceCard-ContainerPanel-Baseline-Period-Input" style="top: 45px; left: 40px">
+						<div>
+							<div>
+								<input type="date" id="endDate">
+							</div>
+						</div>
+					</div>
+					
+
+					<!--            Baseline Container > Period > End Calendar 				       -->
+					<div class="HEPerformanceCard-ContainerPanel-Baseline-Period-Button" style="top: 47px; left: 170px">
+						<div>
+							<button>
+								<span>
+									<img id="endDate_Calendar" class="HEPerformanceCard-Calendar">
+								</span>
+							</button>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+
+	<input type="date">
+
+	</body></html>
