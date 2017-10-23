@@ -24,6 +24,7 @@ TW.Runtime.Widgets.test1= function () {
 	// this is called on your widget anytime bound data changes
 	this.updateProperty = function (updatePropertyInfo) {
 		// TargetProperty tells you which of your bound properties changed
+		console.log(this.getProperty('test1 Property'));
 		if (updatePropertyInfo.TargetProperty === 'test1 Property') {
 			valueElem.text(updatePropertyInfo.SinglePropertyValue);
 			this.setProperty('test1 Property', updatePropertyInfo.SinglePropertyValue);

@@ -1,7 +1,6 @@
 package com.SJLEE;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,22 +8,33 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
 
+import com.thingworx.contentmanagement.ImportAll;
 import com.thingworx.entities.collections.RootEntityCollection;
+import com.thingworx.entities.utils.ThingUtilities;
 import com.thingworx.logging.LogUtilities;
+import com.thingworx.metadata.FieldDefinition;
 import com.thingworx.metadata.annotations.ThingworxServiceDefinition;
 import com.thingworx.metadata.annotations.ThingworxServiceParameter;
 import com.thingworx.metadata.annotations.ThingworxServiceResult;
+import com.thingworx.metadata.collections.FieldDefinitionCollection;
 import com.thingworx.relationships.RelationshipTypes.ThingworxRelationshipTypes;
 import com.thingworx.resources.Resource;
+import com.thingworx.security.context.SecurityContext;
 import com.thingworx.system.entities.ThingWorxEntityManager;
 import com.thingworx.system.managers.BaseManager;
+import com.thingworx.system.managers.MashupManager;
 import com.thingworx.system.managers.MediaEntityManager;
 import com.thingworx.system.managers.StyleDefinitionManager;
 import com.thingworx.system.managers.WidgetManager;
+import com.thingworx.things.repository.FileRepositoryThing;
+import com.thingworx.types.BaseTypes;
+import com.thingworx.ux.mashups.Mashup;
 import com.thingworx.ux.media.MediaEntity;
 import com.thingworx.ux.styles.StyleDefinition;
 import com.thingworx.ux.widgets.Widget;
@@ -265,7 +275,7 @@ public class TestWidgetResource extends Resource {
 				
 				st = con.prepareStatement(sb.toString());
 				
-				FileInputStream fis = new FileInputStream(file);
+				//FileInputStream fis = new FileInputStream(file);
 				//st.setBinaryStream(1, fis, (int)file.length());
 				st.setBytes(1, data);
 				//st.setBytes(2, data);
@@ -289,6 +299,145 @@ public class TestWidgetResource extends Resource {
 		} finally {
 			DBConnect.closeDBConnection(rs, st);
 		}
+		
+	}
+
+	@SuppressWarnings("static-access")
+	@ThingworxServiceDefinition(name = "ImportService", description = "", category = "", isAllowOverride = false, aspects = {
+			"isAsync:false" })
+	@ThingworxServiceResult(name = "result", description = "", baseType = "NOTHING", aspects = {})
+	public void ImportService() {
+		_logger.trace("Entering Service: ImportService");
+		_logger.trace("Exiting Service: ImportService");
+		
+		try {
+
+			String exportFileName = "C:/ThingworxStorage/repository/SystemRepository/import/Mashups_qwer123.xml";
+			Boolean withData = false;
+			Boolean withSubsystems = false;
+			Boolean useDefaultDataProvider = true;
+			SecurityContext securityContext = new SecurityContext();
+			
+			File ff = new File(exportFileName);
+			
+			if(ff.isFile()) {
+				
+				System.out.println("FFFF ============   " + ff.isFile());
+				
+				ImportAll a = new ImportAll(exportFileName, withData, securityContext, withSubsystems, useDefaultDataProvider);
+				
+				System.out.println(" ImportActive ====   " + a.isImportActive());
+				
+				a.run();
+				
+				System.out.println(" ImportActive ====   " + a.isImportActive());
+			}
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	@ThingworxServiceDefinition(name = "GetRepositoryFullPath", description = "", category = "", isAllowOverride = false, aspects = {
+			"isAsync:false" })
+	@ThingworxServiceResult(name = "result", description = "", baseType = "STRING", aspects = {})
+	public String GetRepositoryFullPath(
+			@ThingworxServiceParameter(name = "repositoryName", description = "", baseType = "THINGNAME") String repositoryName) throws Exception {
+		_logger.trace("Entering Service: GetRepositoryFullPath");
+		_logger.trace("Exiting Service: GetRepositoryFullPath");
+		
+		String  result = "";
+		
+		FileRepositoryThing repository = (FileRepositoryThing) ThingUtilities.findThing(repositoryName);
+		
+		result = repository.getRootPath();
+		
+		File file = new File(result);
+		
+		System.out.println("file.isDirectory() ==== " + file.isDirectory() + ", file.isFile() ====  " + file.isFile());
+		
+		return result;
+	}
+
+	@ThingworxServiceDefinition(name = "efefe", description = "", category = "", isAllowOverride = false, aspects = {
+			"isAsync:true" })
+	@ThingworxServiceResult(name = "Result", description = "", baseType = "NOTHING", aspects = {})
+	public void efefe() {
+		
+		System.out.println("efefeefefeefefeefefeefefeefefeefefeefefeefefe");
+		
+		MashupManager mm = MashupManager.getInstance();
+		Mashup mu = mm.getEntity("authTest");
+		
+		FieldDefinitionCollection fdc = mu.getParameters();
+		/*
+		Iterator<Entry<String, FieldDefinition>> ii = fdc.entrySet().iterator();
+		while(ii.hasNext()) {
+			Entry<String, FieldDefinition> ee = ii.next();
+			
+			FieldDefinition fd = ee.getValue();
+			BaseTypes bt = fd.getBaseType();
+			
+			//System.out.println("name == " + ee.getKey() + ", baseType == " + bt + ", defaultValue == ");
+			
+		}
+		*/
+		
+		List<String> nn = fdc.getNames();
+		
+		try {
+			//System.out.println("JSON --- " + mu.toJSON().toString());
+			JSONObject mashup = mu.toJSON();
+			String content_S = mashup.getString("mashupContent");
+			JSONObject content_J = new JSONObject(content_S);
+			JSONObject ui_J = content_J.getJSONObject("UI");
+			JSONObject properties_J = ui_J.getJSONObject("Properties");
+			
+			
+			//System.out.println(" --- " + properties_J.toString());
+			
+			for(String name: nn) {
+				System.out.println("before] name == " + name + ", value == " + properties_J.get(name));
+				
+				properties_J.put(name, name + "1");
+				
+				System.out.println("after] name == " + name + ", value == " + properties_J.get(name));
+			}
+			mu.setMashupContent(content_J.toString());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@ThingworxServiceDefinition(name = "ChangeMashupParameterDefaultValue", description = "", category = "", isAllowOverride = false, aspects = {
+			"isAsync:false" })
+	@ThingworxServiceResult(name = "result", description = "", baseType = "NOTHING", aspects = {})
+	public void ChangeMashupParameterDefaultValue(
+			@ThingworxServiceParameter(name = "mashupName", description = "", baseType = "MASHUPNAME") String mashupName,
+			@ThingworxServiceParameter(name = "propertyName", description = "", baseType = "STRING") String propertyName,
+			@ThingworxServiceParameter(name = "defaultValue", description = "", baseType = "STRING") String defaultValue) {
+		
+		MashupManager mm = MashupManager.getInstance();
+		Mashup mu = mm.getEntity(mashupName);
+		
+		try {
+
+			JSONObject mashup = mu.toJSON();
+			String content_S = mashup.getString("mashupContent");
+			JSONObject content_J = new JSONObject(content_S);
+			JSONObject ui_J = content_J.getJSONObject("UI");
+			JSONObject properties_J = ui_J.getJSONObject("Properties");
+			
+			properties_J.put(propertyName, defaultValue);
+			
+			mu.setMashupContent(content_J.toString());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

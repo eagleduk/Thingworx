@@ -53,5 +53,8 @@ TW.IDE.Widgets.test2 = function () {
 		// update that DOM element based on the property value that the user set
 		// in the mashup builder
 		valueElem.text(this.getProperty('test2 Property'));
+		
+		this.test2 = this.jqElement.common();
+		this.test2.styleTest();
 	};
 };

@@ -22,10 +22,15 @@
                 <FileResource description="" file="test2.ide.css" isDevelopment="true" isRuntime="false" type="CSS"/>
                 <FileResource description="" file="test2.runtime.js" isDevelopment="false" isRuntime="true" type="JS"/>
                 <FileResource description="" file="test2.runtime.css" isDevelopment="false" isRuntime="true" type="CSS"/>
+                <FileResource description="" file="common.js" isDevelopment="true" isRuntime="true" type="JS"/>
             </UIResources>
         </Widget>
     </Widgets>
     <Resources>
         <Resource aspect.isCreatable="false" aspect.isEditableExtensionObject="false" className="com.SJLEE.TestWidgetResource" description="" name="TestWidgetResource"/>
+        <Resource aspect.isCreatable="false" aspect.isEditableExtensionObject="false" className="com.SJLEE.ServiceTestResource" description="" name="ServiceTestResource"/>
     </Resources>
+    <ScriptFunctionLibraries>
+        <ScriptFunctionLibrary aspect.isEditableExtensionObject="false" className="com.SJLEE.TTTTT" description="" name="TTTTT"/>
+    </ScriptFunctionLibraries>
 </Entities>

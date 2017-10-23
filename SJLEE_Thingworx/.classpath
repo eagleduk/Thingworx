@@ -15,7 +15,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/thingworx-platform-common-7.2.1-b71.jar"/>
 	<classpathentry kind="lib" path="twx-lib/jackson-annotations-2.6.1.jar"/>
-	<classpathentry kind="lib" path="twx-lib/joda-time-2.9.jar"/>
+	<classpathentry kind="lib" path="twx-lib/joda-time-2.9.jar" sourcepath="C:/Users/sjlee/AppData/Local/Temp/decompiler/source/joda-time-2.9-sources.jar"/>
 	<classpathentry kind="lib" path="twx-lib/jackson-dataformat-smile-2.6.1.jar"/>
 	<classpathentry kind="lib" path="twx-lib/thingworx-communications-server-7.2.1-b71.jar"/>
 	<classpathentry kind="lib" path="twx-lib/logback-classic-1.0.13.jar"/>
